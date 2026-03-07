@@ -1,10 +1,10 @@
 'use server';
 
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { getUser } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
-const prisma = new PrismaClient();
+
 
 export async function createAppointment(formData: FormData) {
   const user = await getUser();

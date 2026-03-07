@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic";
 import Link from 'next/link';
 import './services.css';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 
-const prisma = new PrismaClient();
+
 
 export default async function ServicesPage() {
   const services = await prisma.service.findMany();

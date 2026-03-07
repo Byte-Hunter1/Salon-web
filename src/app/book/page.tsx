@@ -1,11 +1,11 @@
 export const dynamic = "force-dynamic";
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { getUser } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import BookingForm from '@/components/BookingForm';
 import './book.css';
 
-const prisma = new PrismaClient();
+
 
 // Again resolving searchParams for Next 15
 export default async function BookPage({ searchParams }: { searchParams: Promise<{ service?: string, hairstyle?: string }> }) {

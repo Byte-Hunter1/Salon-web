@@ -1,10 +1,10 @@
 export const dynamic = "force-dynamic";
 import Link from 'next/link';
 import './home.css';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { Scissors, Sparkles, Droplets, Quote, Star } from 'lucide-react';
 
-const prisma = new PrismaClient();
+
 
 export default async function Home() {
   const services = await prisma.service.findMany({ take: 3 });

@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic";
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { updateAppointmentStatus } from '@/app/actions/admin';
 import './admin.css';
 
-const prisma = new PrismaClient();
+
 
 export default async function AdminDashboard() {
   const appointments = await prisma.appointment.findMany({

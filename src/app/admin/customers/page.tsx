@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 
-const prisma = new PrismaClient();
+
 
 export default async function AdminCustomers() {
   const users = await prisma.user.findMany({

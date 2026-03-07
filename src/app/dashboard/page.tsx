@@ -1,12 +1,12 @@
 export const dynamic = "force-dynamic";
 import { getUser } from '@/lib/auth';
 import { logout } from '@/app/actions/auth';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import './dashboard.css';
 
-const prisma = new PrismaClient();
+
 
 export default async function DashboardPage() {
   const user = await getUser();

@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic";
 import Link from 'next/link';
 import './gallery.css';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 
-const prisma = new PrismaClient();
+
 
 // In Next.js App Router, searchParams is a promise in Next 15, but we are using whatever version npx create-next-app brought (likely 15).
 // In Next.js 15, `searchParams` needs to be awaited.
