@@ -1,0 +1,319 @@
+/* Booking Page styles */
+.booking-container {
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.booking-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.booking-header p {
+  color: var(--color-gray);
+  font-weight: 300;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.booking-card {
+  max-width: 850px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--color-text-primary);
+  padding: 0;
+}
+
+.booking-steps {
+  display: flex;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.step.active {
+  color: var(--color-gold);
+  background: rgba(229,184,105,0.05);
+}
+
+.step.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-gold);
+  box-shadow: 0 0 10px var(--color-gold);
+}
+
+.form-step {
+  padding: 3rem;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-gold);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.form-select, .form-group input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.form-select:focus, .form-group input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px rgba(229, 184, 105, 0.15);
+}
+
+select.form-select option {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* Stylist Pills */
+.stylist-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stylist-pill {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.stylist-pill:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  background-color: var(--color-surface-hover);
+}
+
+.stylist-pill.selected {
+  border-color: var(--color-gold);
+  background-color: rgba(197, 160, 40, 0.1); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stylist-pill img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+}
+
+.stylist-pill.selected img {
+  border-color: var(--color-gold);
+}
+
+.stylist-pill h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text-primary);
+}
+
+.stylist-pill p {
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Time Pills */
+.time-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.time-pill {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  border-radius: 9999px;
+  padding: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all var(--transition-fast);
+  color: var(--color-text-secondary);
+}
+
+.time-pill:hover {
+  border-color: var(--color-gold);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-hover);
+}
+
+.time-pill.selected {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #000;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-group.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.form-actions.split {
+  justify-content: space-between;
+}
+
+.summary-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.summary-box h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+}
+
+.summary-box p {
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+}
+
+.summary-box strong {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.total-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(229,184,105,0.3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-price span {
+  font-size: 1.5rem;
+}
+
+.payment-mock {
+  background: linear-gradient(135deg, rgba(229,184,105,0.05), transparent);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-gold-glow);
+  text-align: center;
+}
+
+.text-gray {
+  color: var(--color-gray);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.error-alert {
+  background: rgba(211, 47, 47, 0.1);
+  color: var(--color-danger);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(211, 47, 47, 0.3);
+}
+
+.success-state {
+  text-align: center;
+  padding: 1rem;
+}
+
+.success-state h3 {
+  color: var(--color-gold);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-group.split {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

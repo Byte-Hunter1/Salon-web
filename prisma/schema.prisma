@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  name          String?
+  email         String?       @unique
+  emailVerified DateTime?
+  image         String?
+  role          String        @default("CUSTOMER") // ADMIN or CUSTOMER
+  appointments  Appointment[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Category {
+  id         String      @id @default(cuid())
+  name       String      // Men, Women, Bridal, Kids
+  hairstyles Hairstyle[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model Service {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  duration    Int           // in minutes
+  imageUrl    String?
+  appointments Appointment[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Hairstyle {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  imageUrl    String
+  categoryId  String
+  category    Category      @relation(fields: [categoryId], references: [id])
+  appointments Appointment[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Appointment {
+  id          String        @id @default(cuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  serviceId   String?
+  service     Service?      @relation(fields: [serviceId], references: [id])
+  hairstyleId String?
+  hairstyle   Hairstyle?    @relation(fields: [hairstyleId], references: [id])
+  stylist     String?
+  date        DateTime
+  time        String        // e.g., "10:00 AM"
+  status      String        @default("PENDING") // PENDING, CONFIRMED, RESCHEDULED, CANCELLED, COMPLETED
+  notes       String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Combo {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  // services stored as JSON or a simpler string representation for SQLite simplicity
+  servicesIds String        // comma separated service IDs
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
