@@ -12,7 +12,6 @@ export default function Navbar() {
           <Link href="/services">Services</Link>
           <Link href="/gallery">Gallery</Link>
           <Link href="/login" className="btn btn-outline" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem' }}>Login</Link>
-          <Link href="/login" className="btn btn-outline" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', borderColor: 'var(--color-success)', color: 'var(--color-success)' }}>Admin</Link>
           <Link href="/book" className="btn btn-primary">Book Now</Link>
         </div>
       </div>

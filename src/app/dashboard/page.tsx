@@ -14,8 +14,6 @@ export default async function DashboardPage() {
     redirect('/login');
   }
 
-  const isAdmin = user.role === 'ADMIN';
-
   const appointments = await prisma.appointment.findMany({
     where: { userId: user.id },
     include: { service: true, hairstyle: true },
@@ -33,7 +31,6 @@ export default async function DashboardPage() {
         <nav className="dashboard-nav">
           <Link href="/dashboard" className="nav-item active">My Appointments</Link>
           <Link href="#" className="nav-item">Profile Settings</Link>
-          {isAdmin && <Link href="/admin" className="nav-item admin-link">Admin Dashboard</Link>}
           <form action={logout} className="logout-form">
             <button type="submit" className="btn-logout">Sign Out</button>
           </form>

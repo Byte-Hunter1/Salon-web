@@ -76,12 +76,6 @@
   border-left: 3px solid var(--color-text-primary);
 }
 
-.admin-link {
-  margin-top: 1rem;
-  border: 1px dashed var(--color-text-primary);
-  color: var(--color-text-primary);
-}
-
 .logout-form {
   margin-top: 2rem;
 }
